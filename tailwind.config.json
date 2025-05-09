@@ -1,0 +1,15 @@
+{
+  "content": [
+    "./app/**/*.{js,ts,jsx,tsx,css}",
+    "./components/**/*.{js,ts,jsx,tsx,css}",
+    "./styles/**/*.{css,scss}"
+  ],
+  "theme": {
+    "extend": {
+      "colors": {
+        "main-color": "#3C78D8"
+      }
+    }
+  },
+  "plugins": []
+}
