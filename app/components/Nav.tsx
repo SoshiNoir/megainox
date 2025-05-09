@@ -28,17 +28,26 @@ export default function Nav() {
           }`}
         >
           <li>
-            <a href='#home' className='block hover:underline py-2 px-4'>
+            <a
+              href='#home'
+              className='block hover:scale-105 transition-transform py-2 px-4'
+            >
               Home
             </a>
           </li>
           <li>
-            <a href='#about' className='block hover:underline py-2 px-4'>
+            <a
+              href='#about'
+              className='block hover:scale-105 transition-transform py-2 px-4'
+            >
               Quem Somos
             </a>
           </li>
           <li>
-            <a href='#contact' className='block hover:underline py-2 px-4'>
+            <a
+              href='#contact'
+              className='block hover:scale-105 transition-transform py-2 px-4'
+            >
               Contato
             </a>
           </li>
