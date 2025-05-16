@@ -23,9 +23,9 @@ export default function Home() {
   }, [images.length]);
 
   return (
-    <div className='min-h-screen bg-gray-100'>
+    <div className='min-h-screen bg-gray-color'>
       {/* Hero Section */}
-      <section className='relative py-40 text-center'>
+      <section className='relative py-20 lg:py-40 text-center '>
         <div className='px-4 md:px-0'>
           {images.map((image, index) => (
             <div
@@ -48,10 +48,10 @@ export default function Home() {
         </div>
       </section>
       {/* Products Section */}
-      <section className='lg:px-min-container py-20 text-center'>
+      <section className='lg:px-min-container lg:py-20 text-center'>
         <div className=' hover:shadow-gray-500/70 transition-shadow duration-300'>
-          <h2 className='text-4xl mb-4 text-white'>Nossos Produtos</h2>
-          <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
+          <h2 className='text-4xl mt-4 mb-5 text-white'>Nossos Produtos</h2>
+          <div className='grid grid-cols-1 lg:grid-cols-3 lg:gap-8'>
             <ProductCard image='/images/hero1.jpg' title='Produto 1' />
             <ProductCard image='/images/hero2.jpg' title='Produto 2' />
             <ProductCard image='/images/hero3.jpg' title='Produto 3' />
@@ -60,7 +60,7 @@ export default function Home() {
       </section>
 
       {/* Info Section */}
-      <section className='py-20 text-center bg-sec-color'>
+      <section className='py-10 lg:py-20 text-center bg-sec-color'>
         <div className='lg:px-min-container'>
           <h2 className='text-4xl mb-4 text-white'>Diferencial</h2>
           <div className='grid grid-cols-1 lg:grid-cols-3 gap-8'>
@@ -81,8 +81,11 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section className='py-20 flex flex-col lg:flex-row items-center'>
-        <div className='w-full lg:w-1/2 text-center lg:text-left mb-8 lg:px-min-container'>
+      <section
+        id='about'
+        className='lg:py-20 flex flex-col lg:flex-row items-center'
+      >
+        <div className='w-full lg:w-1/2 text-center lg:text-left lg:mb-8 lg:px-min-container'>
           <div className='bg-main-color p-6 rounded shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
             <h2 className='text-3xl font-bold mb-4 text-white'>Sobre Nós</h2>
             <p className='text-lg text-white'>
@@ -99,8 +102,8 @@ export default function Home() {
             </p>
           </div>
         </div>
-        <div className='lg:px-min-container w-full lg:w-1/2 flex justify-end'>
-          <div className='bg-sec-color p-6 rounded shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
+        <div className='lg:px-min-container w-full lg:w-1/2 flex justify-center lg:justify-end'>
+          <div className='bg-sec-color lg:p-3 rounded shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
             <Image
               src='/images/us.png'
               alt='Sobre Nós'
@@ -113,10 +116,10 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section className='py-20 flex flex-col lg:flex-row items-start bg-sec-color lg:px-min-container'>
+      <section className='lg:py-10 flex flex-col lg:flex-row items-start bg-sec-color lg:px-min-container'>
         {/* Left Side */}
-        <div className='w-full lg:w-1/2 mb-8 px-4 lg:px-min-container'>
-          <div className='bg-main-color p-6 rounded shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
+        <div className='w-full lg:w-1/2 lg:mb-8 lg:px-min-container text-center'>
+          <div className='bg-main-color p-6 rounded lg:shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
             <h2 className='text-3xl font-bold mb-4 text-white'>Contato</h2>
             <p className='flex items-center text-lg text-white mb-4'>
               <FaEnvelope className='text-white mr-2' /> email@megainox.com
@@ -143,8 +146,8 @@ export default function Home() {
         </div>
 
         {/* Right Side */}
-        <div className='w-full lg:w-1/2 px-4 lg:px-min-container'>
-          <div className='bg-main-color p-6 rounded shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
+        <div className='w-full lg:w-1/2 lg:px-min-container'>
+          <div className='lg:bg-main-color p-6 rounded shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
             <h2 className='text-3xl font-bold mb-4 text-white text-center'>
               Escreva sua mensagem
             </h2>
@@ -184,7 +187,7 @@ export default function Home() {
               ></textarea>
               <button
                 type='submit'
-                className='w-full bg-sec-color text-white py-2 rounded hover:bg-gray-700 transition-colors'
+                className='w-full lg:bg-sec-color bg-main-color text-white py-2 rounded hover:bg-gray-700 transition-colors'
               >
                 Enviar
               </button>
