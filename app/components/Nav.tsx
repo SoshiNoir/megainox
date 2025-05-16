@@ -1,14 +1,36 @@
 'use client';
 
-import { useState } from 'react';
+import { motion } from 'framer-motion';
+import { useEffect, useRef, useState } from 'react';
 import { FaFacebook, FaInstagram, FaWhatsapp } from 'react-icons/fa';
 import { HiMenu } from 'react-icons/hi';
 
 export default function Nav() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [showNav, setShowNav] = useState(true);
+  const lastScrollY = useRef(0);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const currentScrollY = window.scrollY;
+      if (currentScrollY > lastScrollY.current && currentScrollY > 50) {
+        setShowNav(false); // scrolling down
+      } else {
+        setShowNav(true); // scrolling up
+      }
+      lastScrollY.current = currentScrollY;
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className='bg-gradient-to-r from-main-color to-sec-color text-white py-4 z-50'>
+    <motion.nav
+      initial={{ opacity: 0, y: -40 }}
+      animate={showNav ? { opacity: 1, y: 0 } : { opacity: 0, y: -40 }}
+      transition={{ duration: 0.5, ease: 'easeOut' }}
+      className='bg-gradient-to-r from-main-color to-sec-color text-white py-4 z-50 fixed top-0 left-0 w-full'
+    >
       <div className='container mx-auto flex justify-between items-center lg:justify-between relative'>
         <a href='#' className='text-2xl font-bold mx-auto lg:mx-0'>
           Mega Inox
@@ -80,6 +102,6 @@ export default function Nav() {
           </a>
         </div>
       </div>
-    </nav>
+    </motion.nav>
   );
 }
