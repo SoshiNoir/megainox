@@ -3,9 +3,9 @@ import { products } from '@/app/data/product';
 export default async function ProductPage({
   params,
 }: {
-  params: Promise<{ slug: string }>;
+  params: { slug: string };
 }) {
-  const { slug } = await params;
+  const { slug } = params;
   return <div>Product: {slug}</div>;
 }
 
