@@ -6,6 +6,7 @@ import { useEffect, useRef, useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 import InfoCard from './components/InfoCard';
 import ProductCard from './components/ProductCard';
+import { products as allProducts } from './data/product';
 
 const AnimatedCard = ({ children }: { children: React.ReactNode }) => (
   <motion.div
@@ -18,11 +19,7 @@ const AnimatedCard = ({ children }: { children: React.ReactNode }) => (
   </motion.div>
 );
 
-const products = [
-  { image: '/images/hero1.jpg', title: 'Produto 1' },
-  { image: '/images/hero2.jpg', title: 'Produto 2' },
-  { image: '/images/hero3.jpg', title: 'Produto 3' },
-];
+const products = allProducts.slice(0, 3);
 
 const infoCards = [
   {
@@ -91,8 +88,8 @@ export default function Home() {
           <h2 className='text-4xl mt-4 mb-5 text-white'>Nossos Produtos</h2>
           <div className='grid grid-cols-1 lg:grid-cols-3 lg:gap-8'>
             {products.map((product) => (
-              <AnimatedCard key={product.title}>
-                <ProductCard image={product.image} title={product.title} />
+              <AnimatedCard key={product.slug}>
+                <ProductCard image={product.gallery[0]} title={product.title} />
               </AnimatedCard>
             ))}
           </div>
@@ -157,7 +154,10 @@ export default function Home() {
       </motion.section>
 
       {/* Contact Section */}
-      <section className='lg:py-10 flex flex-col lg:flex-row items-start bg-sec-color lg:px-min-container'>
+      <section
+        id='contact'
+        className='lg:py-10 flex flex-col lg:flex-row items-start bg-sec-color lg:px-min-container'
+      >
         {/* Left Side */}
         <div className='w-full lg:w-1/2 lg:mb-8 lg:px-min-container text-center'>
           <AnimatedCard>
