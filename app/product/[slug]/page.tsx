@@ -1,14 +1,3 @@
-import MoreSolutions from '@/app/components/MoreSolutions';
-import ProductSlider from '@/app/components/ProductSlider';
-import { products } from '@/app/data/product';
-import { notFound } from 'next/navigation';
-
-interface ProductPageProps {
-  params: {
-    slug: string;
-  };
-}
-
 function getRandomProducts(currentSlug: string, count: number) {
   const filtered = products.filter((p) => p.slug !== currentSlug);
   return filtered
@@ -22,8 +11,19 @@ function getRandomProducts(currentSlug: string, count: number) {
       link: `/product/${p.slug}`,
     }));
 }
+import MoreSolutions from '@/app/components/MoreSolutions';
+import ProductSlider from '@/app/components/ProductSlider';
+import { products } from '@/app/data/product';
+import { notFound } from 'next/navigation';
+import { type FC } from 'react';
 
-export default function ProductPage({ params }: ProductPageProps) {
+type Props = {
+  params: {
+    slug: string;
+  };
+};
+
+const ProductPage: FC<Props> = ({ params }) => {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug);
 
@@ -56,4 +56,6 @@ export default function ProductPage({ params }: ProductPageProps) {
       </div>
     </div>
   );
-}
+};
+
+export default ProductPage;
