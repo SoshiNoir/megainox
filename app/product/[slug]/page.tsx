@@ -1,8 +1,13 @@
 import { products } from '@/app/data/product';
 
-// export default function ProductPage({ params }: { params: { slug: string } }) {
-//   return <div>Product: {params.slug}</div>;
-// }
+export default async function ProductPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  return <div>Product: {slug}</div>;
+}
 
 export function generateMetadata({ params }: { params: { slug: string } }) {
   const product = products.find((p) => p.slug === params.slug);
