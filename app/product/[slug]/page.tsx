@@ -17,7 +17,11 @@ function getRandomProducts(currentSlug: string, count: number) {
     }));
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+export default async function ProductPage({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug);
 
@@ -52,7 +56,11 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   );
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }) {
+export async function generateMetadata({
+  params,
+}: {
+  params: { slug: string };
+}) {
   const product = products.find((p) => p.slug === params.slug);
   return {
     title: product?.title ?? 'Product Not Found',
