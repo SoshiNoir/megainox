@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import Image from 'next/image';
+import Link from 'next/link';
 import { useEffect, useRef, useState } from 'react';
 import { FaEnvelope, FaMapMarkerAlt, FaPhone } from 'react-icons/fa';
 import InfoCard from './components/InfoCard';
@@ -89,7 +90,15 @@ export default function Home() {
           <div className='grid grid-cols-1 lg:grid-cols-3 lg:gap-8'>
             {products.map((product) => (
               <AnimatedCard key={product.slug}>
-                <ProductCard image={product.gallery[0]} title={product.title} />
+                <Link
+                  href={`/product/${product.slug}`}
+                  className='block h-full'
+                >
+                  <ProductCard
+                    image={product.gallery[0]}
+                    title={product.title}
+                  />
+                </Link>
               </AnimatedCard>
             ))}
           </div>

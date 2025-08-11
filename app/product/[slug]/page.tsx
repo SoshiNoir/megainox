@@ -3,6 +3,12 @@ import ProductSlider from '@/app/components/ProductSlider';
 import { products } from '@/app/data/product';
 import { notFound } from 'next/navigation';
 
+interface ProductPageProps {
+  params: {
+    slug: string;
+  };
+}
+
 function getRandomProducts(currentSlug: string, count: number) {
   const filtered = products.filter((p) => p.slug !== currentSlug);
   return filtered
@@ -17,7 +23,7 @@ function getRandomProducts(currentSlug: string, count: number) {
     }));
 }
 
-export default function ProductPage({ params }: { params: { slug: string } }) {
+export default function ProductPage({ params }: ProductPageProps) {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug);
 
