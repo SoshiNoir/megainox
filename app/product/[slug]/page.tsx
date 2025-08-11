@@ -17,7 +17,7 @@ function getRandomProducts(currentSlug: string, count: number) {
     }));
 }
 
-export default function ProductPage({ params }: any) {
+export default function ProductPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug);
 
