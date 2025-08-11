@@ -3,12 +3,6 @@ import ProductSlider from '@/app/components/ProductSlider';
 import { products } from '@/app/data/product';
 import { notFound } from 'next/navigation';
 
-type ProductPageParams = {
-  params: {
-    slug: string;
-  };
-};
-
 function getRandomProducts(currentSlug: string, count: number) {
   const filtered = products.filter((p) => p.slug !== currentSlug);
   return filtered
@@ -23,9 +17,7 @@ function getRandomProducts(currentSlug: string, count: number) {
     }));
 }
 
-export default function ProductPage({ params }: ProductPageParams) {
-  console.log('Slug is:', params.slug); // Forces TypeScript to evaluate type
-
+export default function ProductPage({ params }: { params: { slug: string } }) {
   const { slug } = params;
   const product = products.find((p) => p.slug === slug);
 
@@ -60,7 +52,7 @@ export default function ProductPage({ params }: ProductPageParams) {
   );
 }
 
-export function generateMetadata({ params }: ProductPageParams) {
+export function generateMetadata({ params }: { params: { slug: string } }) {
   const product = products.find((p) => p.slug === params.slug);
   return {
     title: product?.title ?? 'Product Not Found',
