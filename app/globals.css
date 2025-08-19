@@ -3,27 +3,10 @@
 @import 'tailwindcss/utilities';
 @import url('https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@700&display=swap');
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
+/* Force dark theme */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --background: #333333;
+  --foreground: #ffffff;
 }
 
 html {
@@ -36,17 +19,14 @@ body {
   font-family: 'Merriweather Sans', sans-serif;
 }
 
+/* Headings */
+h1,
 h2 {
-  color: #333333;
+  color: var(--foreground);
   font-weight: 700;
 }
 
-h1 {
-  color: #333333;
-  font-weight: 700;
-}
-
-/* Reset padding for hero and sections with background */
+/* Reset padding for hero and sections */
 section.bg-gray-100,
 section.bg-main-color,
 section.bg-sec-color {
@@ -54,6 +34,7 @@ section.bg-sec-color {
   padding-right: 0;
 }
 
+/* Default section background */
 section {
-  background-color: #333333;
+  background-color: var(--background);
 }

@@ -25,15 +25,15 @@ const products = allProducts.slice(0, 3);
 const infoCards = [
   {
     title: 'Qualidade',
-    text: 'loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit.',
+    text: 'Na Mega Inox, qualidade não é apenas um padrão - é um compromisso. Trabalhamos com aço inox certificado, processos de fabricação precisos e acabamento impecável em cada projeto. Cada produto passa por rigorosos critérios de inspeção, garantindo durabilidade, resistência e segurança para sua empresa.',
   },
   {
     title: 'Eficiência',
-    text: 'loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit.',
+    text: 'Na Mega Inox, eficiência significa entregar exatamente o que o cliente precisa. Nosso processo é artesanal, feito com atenção aos detalhes e mãos experientes que garantem precisão em cada etapa. Mesmo sem grandes recursos tecnológicos, a dedicação e o cuidado da nossa equipe asseguram soluções sob medida, prazos cumpridos e a certeza de um resultado que supera expectativas.',
   },
   {
     title: 'Confiança',
-    text: 'loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit. loren ipsum dolor sit amet, consectetur adipiscing elit.',
+    text: 'Mais de 25 anos de atuação no mercado fazem da Mega Inox uma parceira sólida e confiável. Construímos relacionamentos duradouros baseados na transparência, no respeito e na entrega de resultados consistentes. Cada cliente sabe que pode contar conosco em todas as etapas, do projeto à pós-venda.',
   },
 ];
 
@@ -133,16 +133,23 @@ export default function Home() {
             <div className='bg-main-color p-6 rounded shadow-lg shadow-gray-500/50 hover:shadow-xl hover:shadow-gray-500/70 transition-shadow duration-300'>
               <h2 className='text-3xl font-bold mb-4 text-white'>Sobre Nós</h2>
               <p className='text-lg text-white'>
-                Somos especialistas em equipamentos de inox, oferecendo soluções
-                de alta qualidade para atender às suas necessidades. Somos
-                especialistas em equipamentos de inox, oferecendo soluções de
-                alta qualidade para atender às suas necessidades. Somos
-                especialistas em equipamentos de inox, oferecendo soluções de
-                alta qualidade para atender às suas necessidades.Somos
-                especialistas em equipamentos de inox, oferecendo soluções de
-                alta qualidade para atender às suas necessidades.Somos
-                especialistas em equipamentos de inox, oferecendo soluções de
-                alta qualidade para atender às suas necessidades.
+                Há mais de 25 anos no mercado, a Mega Inox se consolidou como
+                referência na fabricação de equipamentos em aço inoxidável.
+                Atendemos indústrias, laboratórios, laticínios, farmacêuticas e
+                diversos segmentos que exigem qualidade, segurança e
+                durabilidade em cada detalhe. Nossa trajetória é marcada pelo
+                trabalho artesanal aliado à precisão técnica, sempre com foco em
+                soluções personalizadas que atendem às necessidades reais de
+                cada cliente. Utilizamos aço inox certificado e contamos com uma
+                equipe altamente qualificada, preparada para transformar
+                projetos em resultados concretos. Mais do que fabricar
+                equipamentos, nosso propósito é construir relações de confiança.
+                Por isso, trabalhamos com transparência, respeito e compromisso
+                em cada etapa — do desenvolvimento do projeto à entrega final.
+                Na Mega Inox, cada produto carrega a nossa essência: qualidade,
+                eficiência e confiança. Esses são os pilares que sustentam nossa
+                história e garantem que possamos ser parceiros estratégicos para
+                o crescimento e sucesso dos nossos clientes.
               </p>
             </div>
           </AnimatedCard>

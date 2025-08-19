@@ -29,20 +29,20 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   const randomSolutions = getRandomProducts(slug, 3);
 
   return (
-    <div className='bg-white min-h-screen'>
+    <div className='bg-[#333333] min-h-screen text-white'>
       <div className='pt-16'>
         <div className='max-w-5xl mx-auto px-4 py-10'>
-          <div className='flex flex-col md:flex-row gap-10'>
-            <div className='md:w-1/2'>
-              <h1 className='text-4xl font-bold text-gray-900 mb-6'>
-                {product.title}
-              </h1>
-              <p className='text-lg text-gray-700 leading-relaxed mb-8'>
-                {product.description}
-              </p>
-            </div>
-            <div className='md:w-1/2 flex items-center'>
-              <ProductSlider images={product.gallery} />
+          <div className='rounded-lg border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.1)] p-6'>
+            <div className='flex flex-col md:flex-row gap-10'>
+              <div className='md:w-1/2'>
+                <h1 className='text-4xl font-bold mb-6'>{product.title}</h1>
+                <p className='text-lg text-gray-300 leading-relaxed mb-8'>
+                  {product.description}
+                </p>
+              </div>
+              <div className='md:w-1/2 flex items-center'>
+                <ProductSlider images={product.gallery} />
+              </div>
             </div>
           </div>
         </div>

@@ -1,5 +1,4 @@
 import type { Metadata } from 'next';
-
 import { Inter } from 'next/font/google';
 import Nav from './components/Nav';
 import './globals.css';
@@ -17,8 +16,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang='en'>
-      <body className={`${inter.className} antialiased`}>
+    <html lang='pt'>
+      <body
+        className={`${inter.className} antialiased text-white`}
+        style={{ backgroundColor: '#333333' }}
+      >
         <Nav />
         {children}
       </body>
