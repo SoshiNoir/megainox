@@ -38,3 +38,13 @@ section.bg-sec-color {
 section {
   background-color: var(--background);
 }
+
+@media (max-width: 640px) {
+  section,
+  main,
+  header,
+  footer {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+  }
+}

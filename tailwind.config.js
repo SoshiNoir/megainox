@@ -10,10 +10,12 @@ module.exports = {
       colors: {
         'main-color': '#3C78D8',
         'sec-color': '#1C4587',
-        'gray-color': '#333333', // Lighter gray for text-gray
+        'ter-color': '#1f2937',
+        'qua-color': '#111827',
+        'gray-color': '#333333',
       },
       spacing: {
-        'min-container': '14rem', // Custom spacing for container padding
+        'min-container': '14rem',
       },
     },
   },

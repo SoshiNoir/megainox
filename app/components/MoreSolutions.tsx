@@ -1,62 +1,67 @@
-import Image from 'next/image';
+'use client';
+
+import ProductCard from '@/app/components/ProductCard';
+import { products } from '@/app/data/product';
 import Link from 'next/link';
-import { products } from '../data/product';
 
 interface Solution {
   title: string;
-  subtitle: string;
+  subtitle?: string;
   link: string;
 }
 
 interface MoreSolutionsProps {
-  solutions: Solution[];
+  solutions?: Solution[];
 }
 
-function shuffleArray<T>(array: T[]): T[] {
+function shuffleArray<T>(array: T[] = []): T[] {
   return array
     .map((a) => [Math.random(), a] as [number, T])
     .sort((a, b) => a[0] - b[0])
     .map((a) => a[1]);
 }
 
-export default function MoreSolutions({ solutions }: MoreSolutionsProps) {
+export default function MoreSolutions({ solutions = [] }: MoreSolutionsProps) {
   const shuffled = shuffleArray(solutions);
 
+  const validSolutions = shuffled
+    .map((sol) => {
+      const slug = sol.link?.replace(/^\/product\/|\/$/g, '');
+      const product = products.find((p) => p.slug === slug);
+      if (!product) return null;
+
+      return (
+        <Link
+          key={product.slug}
+          href={sol.link}
+          className='block w-full h-full transition-transform hover:scale-[1.02]'
+        >
+          <ProductCard
+            images={product.gallery}
+            title={product.title}
+            description={product.description}
+          />
+        </Link>
+      );
+    })
+    .filter(Boolean);
+
   return (
-    <section className='bg-[#333333] py-8'>
-      <div className='max-w-6xl mx-auto px-4'>
-        <h2 className='text-2xl font-semibold text-white mb-6 text-center'>
+    <section className='bg-[#333333] py-12'>
+      <div className='w-full px-0 md:px-4'>
+        <h2 className='text-3xl font-bold text-white mb-8 text-center'>
           Veja Mais Soluções
         </h2>
-        <div className='grid md:grid-cols-3 gap-6'>
-          {shuffled.map((sol, i) => {
-            const slug = sol.link.split('/').pop();
-            const product = products.find((p) => p.slug === slug);
-            const image = product?.gallery?.[0];
-            return (
-              <Link key={i} href={sol.link} className='block h-full'>
-                <div className='bg-[#444444] p-4 rounded-lg border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.1)] flex flex-col items-center group cursor-pointer h-full transition-transform duration-300 hover:scale-105'>
-                  {image && (
-                    <div className='relative w-full h-72 md:h-64 mb-3 overflow-hidden rounded'>
-                      <Image
-                        src={image}
-                        alt={sol.title}
-                        fill
-                        className='object-cover rounded transition-transform duration-300 group-hover:scale-110'
-                      />
-                    </div>
-                  )}
-                  <h3 className='font-bold text-white text-lg text-center'>
-                    {sol.title}
-                  </h3>
-                  <p className='text-gray-300 mb-3 text-center'>
-                    {sol.subtitle}
-                  </p>
-                </div>
-              </Link>
-            );
-          })}
-        </div>
+
+        {validSolutions.length > 0 ? (
+          <div className='grid grid-cols-1 md:grid-cols-1 lg:grid-cols-3 gap-6 auto-rows-fr'>
+            {validSolutions}
+          </div>
+        ) : (
+          <p className='text-center text-white/70'>
+            Nenhuma solução relacionada foi encontrada.
+          </p>
+        )}
       </div>
     </section>
   );

@@ -1,3 +1,5 @@
+'use client';
+
 import MoreSolutions from '@/app/components/MoreSolutions';
 import ProductSlider from '@/app/components/ProductSlider';
 import { products } from '@/app/data/product';
@@ -31,21 +33,30 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
   return (
     <div className='bg-[#333333] min-h-screen text-white'>
       <div className='pt-16'>
-        <div className='max-w-5xl mx-auto px-4 py-10'>
-          <div className='rounded-lg border border-white/10 shadow-[0_0_20px_rgba(255,255,255,0.1)] p-6'>
-            <div className='flex flex-col md:flex-row gap-10'>
-              <div className='md:w-1/2'>
-                <h1 className='text-4xl font-bold mb-6'>{product.title}</h1>
-                <p className='text-lg text-gray-300 leading-relaxed mb-8'>
+        {/* Wrapper com largura total no mobile */}
+        <div className='px-0 md:px-4 py-10'>
+          <div className='w-full max-w-6xl mx-auto bg-qua-color rounded-xl shadow-md hover:shadow-xl transition-all duration-300'>
+            {/* Layout responsivo: carrossel em cima no mobile, texto ao lado no desktop */}
+            <div className='grid grid-cols-1 md:grid-cols-2'>
+              {/* Carrossel */}
+              <div className='w-full h-64 md:h-[400px]'>
+                <ProductSlider images={product.gallery} />
+              </div>
+
+              {/* Texto */}
+              <div className='flex flex-col justify-center px-4 py-6 md:px-6 md:py-8'>
+                <h1 className='text-4xl font-bold mb-6 text-white'>
+                  {product.title}
+                </h1>
+                <p className='text-white/80 text-base leading-relaxed'>
                   {product.description}
                 </p>
-              </div>
-              <div className='md:w-1/2 flex items-center'>
-                <ProductSlider images={product.gallery} />
               </div>
             </div>
           </div>
         </div>
+
+        {/* Soluções relacionadas */}
         <MoreSolutions solutions={randomSolutions} />
       </div>
     </div>

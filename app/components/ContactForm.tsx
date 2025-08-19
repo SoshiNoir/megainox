@@ -1,33 +1,60 @@
-export default function ContactForm() {
+'use client';
+
+import React from 'react';
+
+const ContactForm = () => {
   return (
-    <section className='max-w-4xl mx-auto px-4 py-10'>
-      <h2 className='text-2xl font-semibold mb-6'>Entre em Contato</h2>
-      <form className='grid grid-cols-1 md:grid-cols-2 gap-4'>
-        <input type='text' placeholder='Nome' className='border p-2 rounded' />
+    <form className='space-y-6 text-foreground'>
+      <div>
+        <label
+          htmlFor='name'
+          className='block text-sm font-medium text-foreground'
+        >
+          Nome
+        </label>
         <input
           type='text'
-          placeholder='Telefone'
-          className='border p-2 rounded'
+          id='name'
+          className='mt-2 block w-full bg-ter-color text-white border border-gray-600 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-main-color'
         />
+      </div>
+
+      <div>
+        <label
+          htmlFor='email'
+          className='block text-sm font-medium text-foreground'
+        >
+          Email
+        </label>
         <input
           type='email'
-          placeholder='E-mail'
-          className='border p-2 rounded md:col-span-2'
+          id='email'
+          className='mt-2 block w-full bg-ter-color text-white border border-gray-600 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-main-color'
         />
-        <input
-          type='text'
-          placeholder='Empresa'
-          className='border p-2 rounded md:col-span-2'
-        />
+      </div>
+
+      <div>
+        <label
+          htmlFor='message'
+          className='block text-sm font-medium text-foreground'
+        >
+          Mensagem
+        </label>
         <textarea
-          placeholder='Mensagem'
+          id='message'
           rows={4}
-          className='border p-2 rounded md:col-span-2'
+          className='mt-2 block w-full bg-ter-color text-white border border-gray-600 rounded-md px-4 py-2 focus:outline-none focus:ring-2 focus:ring-main-color'
         />
-        <button className='bg-blue-600 text-white py-2 rounded md:col-span-2 hover:bg-blue-700 transition'>
-          ENVIAR MENSAGEM
-        </button>
-      </form>
-    </section>
+      </div>
+
+      <button
+        type='submit'
+        className='bg-main-color text-white px-6 py-2 rounded-md hover:bg-sec-color transition-colors'
+      >
+        Enviar
+      </button>
+    </form>
   );
-}
+};
+
+export default ContactForm;
