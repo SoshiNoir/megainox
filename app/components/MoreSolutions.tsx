@@ -3,6 +3,7 @@
 import ProductCard from '@/app/components/ProductCard';
 import { products } from '@/app/data/product';
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 interface Solution {
   title: string;
@@ -22,11 +23,17 @@ function shuffleArray<T>(array: T[] = []): T[] {
 }
 
 export default function MoreSolutions({ solutions = [] }: MoreSolutionsProps) {
-  const shuffled = shuffleArray(solutions);
+  // Render deterministic list on the server; shuffle on the client to avoid
+  // hydration mismatches caused by Math.random during SSR.
+  const [shuffled, setShuffled] = useState<Solution[]>(solutions);
+
+  useEffect(() => {
+    setShuffled(shuffleArray(solutions));
+  }, [solutions]);
 
   const validSolutions = shuffled
     .map((sol) => {
-      const slug = sol.link?.replace(/^\/product\/|\/$/g, '');
+      const slug = sol.link?.replace(/^\/product\//, '').replace(/\/$/, '');
       const product = products.find((p) => p.slug === slug);
       if (!product) return null;
 

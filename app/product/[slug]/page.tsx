@@ -4,19 +4,17 @@ import MoreSolutions from '@/app/components/MoreSolutions';
 import ProductSlider from '@/app/components/ProductSlider';
 import { products } from '@/app/data/product';
 import { notFound } from 'next/navigation';
+import { FaWhatsapp } from 'react-icons/fa';
 
 function getRandomProducts(currentSlug: string, count: number) {
+  // Deterministic selection for server render: pick the first `count` products
+  // excluding the current one. The client may reshuffle for randomness.
   const filtered = products.filter((p) => p.slug !== currentSlug);
-  return filtered
-    .map((p) => [Math.random(), p] as [number, typeof p])
-    .sort((a, b) => a[0] - b[0])
-    .map((a) => a[1])
-    .slice(0, count)
-    .map((p) => ({
-      title: p.title,
-      subtitle: p.description?.slice(0, 60) + '...',
-      link: `/product/${p.slug}`,
-    }));
+  return filtered.slice(0, count).map((p) => ({
+    title: p.title,
+    subtitle: p.description?.slice(0, 60) + '...',
+    link: `/product/${p.slug}`,
+  }));
 }
 
 export default function ProductPage({ params }: { params: { slug: string } }) {
@@ -51,6 +49,17 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
                 <p className='text-white/80 text-base leading-relaxed'>
                   {product.description}
                 </p>
+                {/* WhatsApp button is shown on the product detail page only */}
+                <a
+                  href='https://wa.me/5511999999999'
+                  target='_blank'
+                  rel='noopener noreferrer'
+                  aria-label='Fale conosco via WhatsApp'
+                  className='mx-4 mb-4 mt-4 md:mt-auto bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg text-center flex items-center justify-center gap-2 transition-colors duration-300'
+                >
+                  <FaWhatsapp size={20} aria-hidden='true' />
+                  <span>Fale conosco</span>
+                </a>
               </div>
             </div>
           </div>

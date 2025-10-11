@@ -2,6 +2,7 @@
 
 import Image from 'next/image';
 import React from 'react';
+import { FaWhatsapp } from 'react-icons/fa';
 import { Navigation, Pagination } from 'swiper/modules';
 import { Swiper, SwiperSlide } from 'swiper/react';
 
@@ -13,6 +14,7 @@ interface ProductCardProps {
   images?: string[];
   title: string;
   description?: string;
+  showContactButton?: boolean;
 }
 
 const truncate = (text: string, maxLength: number) => {
@@ -21,7 +23,12 @@ const truncate = (text: string, maxLength: number) => {
   return text.slice(0, maxLength - suffix.length).trimEnd() + suffix;
 };
 
-const ProductCard = ({ images = [], title, description }: ProductCardProps) => {
+const ProductCard = ({
+  images = [],
+  title,
+  description,
+  showContactButton = false,
+}: ProductCardProps) => {
   return (
     <div className='w-full h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:ring-2 hover:ring-main-color flex flex-col min-h-0'>
       {/* Carrossel com altura fixa e overflow controlado */}
@@ -63,7 +70,22 @@ const ProductCard = ({ images = [], title, description }: ProductCardProps) => {
             {truncate(description, 180)}
           </p>
         )}
+        {showContactButton && (
+          <a
+            href='https://wa.me/5516992340056'
+            target='_blank'
+            rel='noopener noreferrer'
+            aria-label='Fale conosco via WhatsApp'
+            className='mx-4 mt-4 bg-green-500 hover:bg-green-600 text-white font-semibold py-2 px-4 rounded-lg text-center flex items-center justify-center gap-2 transition-colors duration-300'
+          >
+            <FaWhatsapp size={20} aria-hidden='true' />
+            <span>Fale conosco</span>
+          </a>
+        )}
       </div>
+
+      {/* Bottom accent bar to visually unify the card */}
+      <div className='w-full h-2 bg-main-color'></div>
     </div>
   );
 };

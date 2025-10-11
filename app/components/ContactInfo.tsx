@@ -17,9 +17,9 @@ const ContactInfo = () => {
             {/* E-mail */}
             <a
               href='mailto:megainox@megainox.ind.br'
-              className='flex items-start gap-2 sm:gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
+              className='flex items-center gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
             >
-              <FaEnvelope className='text-main-color mt-1 text-lg sm:text-xl' />
+              <FaEnvelope className='text-main-color text-lg sm:text-xl' />
               <div>
                 <strong className='text-main-color font-semibold'>
                   E-mail:
@@ -33,9 +33,9 @@ const ContactInfo = () => {
               href='https://wa.me/5516992749042'
               target='_blank'
               rel='noopener noreferrer'
-              className='flex items-start gap-2 sm:gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
+              className='flex items-center gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
             >
-              <FaWhatsapp className='text-main-color mt-1 text-lg sm:text-xl' />
+              <FaWhatsapp className='text-main-color text-lg sm:text-xl' />
               <div>
                 <strong className='text-main-color font-semibold'>
                   WhatsApp Comercial:
@@ -49,9 +49,9 @@ const ContactInfo = () => {
               href='https://wa.me/5516992340056'
               target='_blank'
               rel='noopener noreferrer'
-              className='flex items-start gap-2 sm:gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
+              className='flex items-center gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
             >
-              <FaWhatsapp className='text-main-color mt-1 text-lg sm:text-xl' />
+              <FaWhatsapp className='text-main-color text-lg sm:text-xl' />
               <div>
                 <strong className='text-main-color font-semibold'>
                   WhatsApp Projetos:
@@ -65,9 +65,9 @@ const ContactInfo = () => {
               href='https://www.google.com/maps?q=Travessa+dos+Tupinambás,+80,+Batatais,+SP'
               target='_blank'
               rel='noopener noreferrer'
-              className='flex items-start gap-2 sm:gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
+              className='flex items-center gap-3 px-2 py-1 sm:px-3 sm:py-2 rounded-md hover:bg-white/10 transition-colors'
             >
-              <FaMapMarkerAlt className='text-main-color mt-1 text-lg sm:text-xl' />
+              <FaMapMarkerAlt className='text-main-color text-lg sm:text-xl' />
               <div>
                 <strong className='text-main-color font-semibold'>
                   Endereço:
