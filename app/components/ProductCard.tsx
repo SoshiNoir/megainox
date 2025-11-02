@@ -32,7 +32,7 @@ const ProductCard = ({
   return (
     <div className='w-full h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:ring-2 hover:ring-main-color flex flex-col min-h-0'>
       {/* Carrossel com altura fixa e overflow controlado */}
-      <div className='relative w-full overflow-hidden'>
+      <div className='relative w-full'>
         {images.length > 0 ? (
           <Swiper
             modules={[Navigation, Pagination]}

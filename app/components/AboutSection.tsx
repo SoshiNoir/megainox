@@ -27,16 +27,14 @@ const AboutSection = () => {
         </div>
 
         {/* Imagem clicável */}
-        <div
-          className='relative w-full h-64 md:h-96 cursor-pointer'
-          onClick={() => setIsOpen(true)}
-        >
+        <div className='w-full cursor-pointer' onClick={() => setIsOpen(true)}>
           <Image
             src='/images/sobre.png'
             alt='Equipe da Mega Inox trabalhando'
-            layout='fill'
-            objectFit='contain'
-            className='rounded-lg shadow-lg'
+            width={1600}
+            height={900}
+            sizes='100vw'
+            className='w-full h-auto object-contain rounded-lg shadow-lg'
           />
         </div>
       </div>
