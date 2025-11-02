@@ -1,7 +1,7 @@
 export const products = [
   {
     slug: "reator",
-    title: "Reatores",
+    ""    title: "Reatores",
     heroImage: "/images/hero1.jpg",
     description: `Os reatores Ex da MegaInox são projetados para ambientes com atmosfera explosiva,
     atendendo às mais rigorosas normas de segurança. Construídos em aço inoxidável de alta qualidade,

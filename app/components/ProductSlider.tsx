@@ -16,26 +16,26 @@ export default function ProductSlider({ images }: ProductSliderProps) {
   const [modalImg, setModalImg] = useState<string | null>(null);
 
   return (
-    <div className='w-full h-64 md:h-96 rounded shadow bg-gray-100'>
+    <div className='w-full rounded shadow bg-gray-100'>
       <Swiper
         modules={[Navigation, Pagination]}
         navigation
         pagination={{ clickable: true }}
         spaceBetween={20}
         slidesPerView={1}
-        className='h-full'
+        autoHeight
+        className='w-full'
       >
         {images.map((src, i) => (
           <SwiperSlide key={i}>
-            <div
-              className='relative w-full h-64 md:h-96 cursor-pointer'
-              onClick={() => setModalImg(src)}
-            >
+            <div className='w-full cursor-pointer' onClick={() => setModalImg(src)}>
               <Image
                 src={src}
                 alt={`Imagem ${i + 1}`}
-                fill
-                className='object-cover rounded'
+                width={1600}
+                height={900}
+                sizes='(min-width: 768px) 50vw, 100vw'
+                className='w-full h-auto object-contain rounded'
                 priority={i === 0}
               />
             </div>

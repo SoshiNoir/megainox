@@ -37,7 +37,7 @@ export default function ProductPage({ params }: { params: { slug: string } }) {
             {/* Layout responsivo: carrossel em cima no mobile, texto ao lado no desktop */}
             <div className='grid grid-cols-1 md:grid-cols-2'>
               {/* Carrossel */}
-              <div className='w-full h-64 md:h-[400px]'>
+              <div className='w-full'>
                 <ProductSlider images={product.gallery} />
               </div>
 
