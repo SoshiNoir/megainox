@@ -32,24 +32,26 @@ const ProductCard = ({
   return (
     <div className='w-full h-full bg-gray-800 rounded-xl overflow-hidden shadow-lg transition-all duration-300 transform hover:scale-[1.02] hover:shadow-2xl hover:ring-2 hover:ring-main-color flex flex-col min-h-0'>
       {/* Carrossel com altura fixa e overflow controlado */}
-      <div className='relative w-full h-48 md:h-64 overflow-hidden'>
+      <div className='relative w-full overflow-hidden'>
         {images.length > 0 ? (
           <Swiper
             modules={[Navigation, Pagination]}
             navigation
             pagination={{ clickable: true }}
-            className='w-full h-full'
+            autoHeight
+            className='w-full'
           >
             {images.map((img, idx) => (
               <SwiperSlide key={idx}>
-                <div className='relative w-full h-48 md:h-64 overflow-hidden'>
+                <div className='relative w-full'>
                   <Image
                     src={img}
                     alt={`${title} ${idx + 1}`}
-                    fill
-                    sizes='(max-width: 768px) 100vw, 100vw'
-                    style={{ objectFit: 'cover' }}
-                    className='rounded-none'
+                    width={1200}
+                    height={800}
+                    sizes='100vw'
+                    className='w-full h-auto object-contain rounded-none'
+                    priority={idx === 0}
                   />
                 </div>
               </SwiperSlide>
